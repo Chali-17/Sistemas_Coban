@@ -310,6 +310,7 @@ nav {
     margin: 0 auto;
 }
 
+/* Estilos base para las cards */
 .card {
     background: rgba(0, 56, 118, 0.95);
     border: 5px solid var(--accent-gold);
@@ -321,6 +322,35 @@ nav {
     backdrop-filter: blur(5px);
 }
 
+/* Estilos para el título y texto de las cards */
+.card h3 {
+    color: var(--accent-gold);  /* Título en dorado */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    min-height: 3.6rem;
+    text-align: center;
+}
+
+.card p {
+    color: var(--white);  /* Texto en blanco */
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Eliminar las reglas duplicadas y media queries anidados */
+@media (max-width: 768px) {
+    .card {
+        min-width: 100%;
+        margin: 0 1rem;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+}
 .card-image {
     width: 100%;
     height: 350px;
@@ -387,29 +417,29 @@ nav {
     }
 
     .card h3 {
-        color: var(--accent-gold);  /* Cambiado a dorado */
+        color: var(--accent-gold);  /* Título en dorado */
         font-size: 1.5rem;
         margin-bottom: 1rem;
         min-height: 3.6rem;
-        text-align: center;  /* Centrado del título */
+        text-align: center;
     }
 
     .card p {
-        color: var(--white);  /* Asegurando que el texto sea blanco */
+        color: var(--white);  /* Texto en blanco */
         font-size: 1rem;
         line-height: 1.6;
-        text-align: center;  /* Centrado del texto */
+        text-align: left;
     }
 
     @media (max-width: 768px) {
         .card h3 {
-            color: var(--accent-gold);  /* Manteniendo el dorado en móvil */
-            font-size: 1.3rem;
+            color: var(--accent-gold);  /* Manteniendo dorado en móvil */
+            font-size: 1.5rem;
         }
         
         .card p {
-            color: var(--white);  /* Manteniendo el blanco en móvil */
-            text-align: center;
+            color: var(--white);  /* Manteniendo blanco en móvil */
+            text-align: left;
         }
     }
 }
