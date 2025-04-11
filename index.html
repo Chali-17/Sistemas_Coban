@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ingeniería en Sistemas de Información y Ciencias de la Computación - UMG Cobán">
     <title>Sistemas Cobán</title>
-    <!-- Preload de recursos críticos -->
-    <link rel="preload" href="img/banner-xl.webp" as="image" type="image/webp">
+    <link rel="preload" href="img/banner-xl.webp" as="image" fetchpriority="high">
     <link rel="preload" href="fuente/UbuntuMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="estilo.css">
 </head>
@@ -13,14 +13,14 @@
     <nav>
         <!-- Logo optimizado -->
         <div class="logo-container">
-            <img src="img/Umg.webp" 
-                 srcset="img/Umg-small.webp 150w,
-                         img/Umg.webp 200w"
-                 sizes="(max-width: 768px) 150px, 200px"
-                 alt="Logo" 
-                 width="200" 
-                 height="70">
+            <picture>
+                <source srcset="img/Umg-small.webp 150w, img/Umg.webp 200w" type="image/webp">
+                <img src="img/Umg.webp" alt="Logo UMG" width="200" height="70" fetchpriority="high">
+            </picture>
         </div>
+        
+        <!-- Eliminar esta sección que está duplicada -->
+        <!-- <div class="card-image">...</div> -->
         
         <div class="menu-toggle" onclick="toggleMenu()">
             <span></span>
@@ -121,37 +121,29 @@
     </section>
     
     <script>
-        // Script existente
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+        // Menú móvil optimizado
+        const toggleMenu = () => document.querySelector('.nav-links').classList.toggle('active');
     
-        // Optimización de carga de imágenes
-        document.addEventListener('DOMContentLoaded', function() {
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            if ('loading' in HTMLImageElement.prototype) {
-                lazyImages.forEach(img => {
-                    img.loading = 'lazy';
-                });
-            } else {
-                // Fallback para navegadores que no soportan lazy loading nativo
-                const lazyLoadScript = document.createElement('script');
-                lazyLoadScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-                document.body.appendChild(lazyLoadScript);
-            }
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
         });
     
-        // Scripts existentes...
+        // Optimización de carga
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lazy loading
+            if ('loading' in HTMLImageElement.prototype) {
+                document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                    img.decoding = 'async';
+                });
+            }
     
-        // Precarga de imágenes críticas
-        window.addEventListener('load', function() {
-            const imageUrls = [
-                'img/banner-xl.webp',
-                'img/fondo.webp'
-            ];
-            
-            imageUrls.forEach(url => {
+            // Precarga de imágenes críticas
+            ['img/banner-xl.webp', 'img/fondo.webp'].forEach(url => {
                 const img = new Image();
                 img.src = url;
             });
