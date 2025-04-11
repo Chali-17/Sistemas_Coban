@@ -37,15 +37,7 @@ nav {
     height: 80px;
 }
 
-nav.scrolled {
-    background-color: rgba(0, 56, 118, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-}
+
 
 .nav-links a {
     color: var(--white);
@@ -82,7 +74,16 @@ nav.scrolled {
 .logo-container img {
     max-width: 100%;
     max-height: 100%;
+    width: 200px;
+    height: 70px;
     object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .logo-container img {
+        width: 150px;
+        height: 60px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -227,13 +228,38 @@ nav.scrolled {
 .hero h1 {
     color: var(--white);
     font-family: var(--font-main);
-    font-size: 6.5rem;
+    font-size: clamp(2.5rem, 5vw, 6.5rem);
     line-height: 1.1;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    backface-visibility: hidden;
 }
 
+/* Optimizar la carga del fondo del hero */
+.hero {
+    background-image: url('img/banner-xl.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Precargar la fuente crítica */
+@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Ubuntu Mono Bold'),
+         url('fuente/UbuntuMono-Bold.ttf') format('truetype');
+    font-preload: true;
+}
 .hero p {
     color: var(--accent-gold);
     font-family: var(--font-main);
@@ -290,15 +316,56 @@ nav.scrolled {
     border-radius: 10px;
     padding: 2rem;
     flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 350px;  /* Aumentado de 300px */
+    max-width: 450px;  /* Aumentado de 400px */
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease;
+}
+
+.card-image {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid var(--accent-gold);
+    line-height: 0; /* Elimina el espacio extra */
+    font-size: 0; /* Elimina cualquier espacio causado por el texto */
+    display: flex; /* Asegura que la imagen llene todo el contenedor */
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    border-radius: 6px;
+    /* Se eliminó la transición y transform */
+}
+
+
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;  /* Aumentado de 2rem */
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;  /* Añadido padding */
 }
 
 @media (max-width: 768px) {
     .card {
         min-width: 100%;
+        margin: 0 1rem;
+    }
+    
+    .card-image {
+        height: 250px;  /* Ajustado para móviles */
     }
 }
 .card h3 {
@@ -325,26 +392,28 @@ nav.scrolled {
     }
 
     .card {
-        min-width: 100%;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid var(--accent-gold);
+        background-color: var(--primary-blue); /* Añadido como fallback mientras carga */
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .card-image {
+            height: 200px;
+        }
     }
 }
-
-.card-image {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--accent-gold);
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
 .card:hover .card-image img {
     transform: scale(1.05);
 }
@@ -421,4 +490,22 @@ nav.scrolled {
     .info-grid {
         grid-template-columns: 1fr;
     }
+}@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Ubuntu Mono'),
+         url('fuente/UbuntuMono-Regular.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Ubuntu Mono Bold'),
+         url('fuente/UbuntuMono-Bold.ttf') format('truetype');
+}
+
+/* El resto de tus estilos CSS permanece igual */
