@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Cobán</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <!-- Logo placeholder -->
+            <img src="img/Umg.webp" alt="Logo">
+        </div>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#modalidad">Modalidad</a>
+            <a href="#pensum">Pensum</a>
+            <a href="#galeria">Galería</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ingeniería en Sistemas de Información y Ciencias de la Computación</h1>
+            <p>¡Ingeniería en Sistemas te cambia la Vida!</p>
+        </div>
+    </section>
+
+    <div class="separador-degradado"></div>
+
+    <section class="descripcion">
+        <h2>Descripción</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="img/mate.webp" alt="Área de Ciencias">
+                </div>
+                <h3>ÁREA DE CIENCIAS DE LA INGENIERÍA</h3>
+                <p>En esta área se adquieren conocimientos sólidos en matemáticas, física y otras ciencias aplicadas, fundamentales para resolver problemas técnicos. También se desarrollan habilidades en algoritmos, estructuras de datos y fundamentos computacionales, que forman la base de soluciones en ingeniería.</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-image">
+                    <img src="img/programacion.webp" alt="Área de Análisis">
+                </div>
+                <h3>ÁREA DE ANÁLISIS, DISEÑO Y DESARROLLO</h3>
+                <p>En esta sección se profundiza en el análisis, la planificación, el diseño y la implementación de soluciones tecnológicas. Se aprende a convertir requerimientos en sistemas funcionales utilizando metodologías modernas de programación y diseño, creando aplicaciones y sistemas informáticos innovadores.</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-image">
+                    <img src="img/redes.webp" alt="Área de Administración">
+                </div>
+                <h3>ÁREA DE ADMINISTRACIÓN DE TECNOLOGÍAS DE INFORMACIÓN</h3>
+                <p>Aquí se adquieren las herramientas para gestionar recursos tecnológicos de manera eficiente en organizaciones. Incluye planificación estratégica, seguridad informática y optimización de procesos empresariales mediante el uso de tecnología. También se exploran temas de liderazgo y toma de decisiones tecnológicas.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="info-academica">
+        <h2>Información Académica</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>Título académico a obtener</h3>
+                <p>Ingeniero(a) en sistemas de información y ciencias de la computación</p>
+            </div>
+            <div class="info-item">
+                <h3>Grado Académico</h3>
+                <p>Licenciatura en ingeniería en sistemas de información y ciencias de la computación</p>
+            </div>
+            <div class="info-item">
+                <h3>Duración</h3>
+                <p>5 Años</p>
+            </div>
+            <div class="info-item">
+                <h3>Modalidad de estudio</h3>
+                <p>Presencial</p>
+            </div>
+            <div class="info-item">
+                <h3>Jornada</h3>
+                <p>Diaria Vespertina y Plan Fin de Semana</p>
+            </div>
+            <div class="info-item">
+                <h3>Horario</h3>
+                <p>Lunes a Viernes de 13:00 a 21:00<br>
+                Sábado de 07:00 a 15:00</p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
