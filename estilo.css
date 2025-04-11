@@ -191,12 +191,11 @@ nav {
         transition: none !important;
     }
 }
-
 .hero {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('img/banner-xl.jpg');
+    background-image: url('img/banner-xl.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -205,6 +204,26 @@ nav {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-family: var(--font-main);
+    font-size: clamp(2.5rem, 5vw, 6.5rem);
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+    letter-spacing: 1px;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    backface-visibility: hidden;
+    /* Optimización para el LCP */
+    content-visibility: auto;
+    contain: layout paint;
 }
 
 .hero::before {
@@ -223,31 +242,6 @@ nav {
     max-width: 1400px;
     z-index: 1;
     padding: 0 20px;
-}
-
-.hero h1 {
-    color: var(--white);
-    font-family: var(--font-main);
-    font-size: clamp(2.5rem, 5vw, 6.5rem);
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    font-weight: 700;
-    letter-spacing: 1px;
-    will-change: transform;
-    transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
-    backface-visibility: hidden;
-}
-
-/* Optimizar la carga del fondo del hero */
-.hero {
-    background-image: url('img/banner-xl.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
 }
 
 /* Precargar la fuente crítica */
