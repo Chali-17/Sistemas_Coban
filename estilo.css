@@ -566,7 +566,7 @@ nav {
 
 .carousel-container {
     position: relative;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -578,13 +578,20 @@ nav {
 
 .carousel-item {
     min-width: 100%;
-    height: 400px;
+    height: 600px;
 }
 
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 400px;
+    }
 }
 
 .carousel-button {
@@ -597,7 +604,7 @@ nav {
     padding: 1rem;
     cursor: pointer;
     font-size: 1.5rem;
-    transition: background 0.3s;
+    z-index: 2;
 }
 
 .carousel-button:hover {
