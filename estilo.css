@@ -906,3 +906,8 @@ img {
     width: 100%;
     box-sizing: border-box;
 }
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Reduced font size for mobile */
+    }
+}
