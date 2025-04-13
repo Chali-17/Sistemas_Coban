@@ -732,3 +732,43 @@ nav {
     margin-bottom: 3rem;
     letter-spacing: 2px;
 }
+
+/* Fix for mobile horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Ensure all sections stay within viewport */
+section {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Ensure images don't overflow their containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for carousel container */
+.carousel-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+/* Ensure cards don't cause overflow */
+.cards-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+.card {
+    width: 100%;
+    box-sizing: border-box;
+}
