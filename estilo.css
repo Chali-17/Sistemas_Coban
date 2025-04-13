@@ -22,8 +22,8 @@ body {
 
 nav {
     background-color: rgba(0, 56, 118, 0.3);
-    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -35,6 +35,8 @@ nav {
     z-index: 1000;
     transition: all 0.3s ease;
     height: 80px;
+    font-family: 'Orbitron', sans-serif;
+    
 }
 
 
@@ -46,6 +48,7 @@ nav {
     padding: 0.5rem 1rem;
     transition: all 0.3s ease;
     position: relative;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-links a::after {
@@ -195,7 +198,7 @@ nav {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('img/banner-xl.webp');
+    background-image: url('img/fondo.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -243,6 +246,9 @@ nav {
     z-index: 1;
     padding: 0 20px;
 }
+.hero-content h1, .hero-content p {
+    font-family: 'Orbitron', sans-serif;
+}
 
 /* Precargar la fuente crítica */
 @font-face {
@@ -279,6 +285,7 @@ nav {
     padding: 2rem 2rem 3rem;
     text-align: center;
     position: relative;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .descripcion h2 {
@@ -287,6 +294,7 @@ nav {
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -460,6 +468,7 @@ nav {
     background-position: center;
     padding: 4rem 2rem;
     text-align: center;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .info-academica::before {
@@ -530,5 +539,24 @@ nav {
     src: local('Ubuntu Mono Bold'),
          url('fuente/UbuntuMono-Bold.ttf') format('truetype');
 }
+
+.boton-formulario {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--accent-gold);
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-formulario:hover {
+    background-color: #ffcc3a;
+    transform: translateY(-2px);
+}
+
 
 /* El resto de tus estilos CSS permanece igual */
